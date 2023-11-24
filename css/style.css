@@ -1,0 +1,91 @@
+.search-container {
+            position: relative;
+            min-width: 100px;
+            display: inline-block;
+        }
+        
+        .search-container input {
+        width: 400px; /* Set a specific width or adjust as needed */
+    	}
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1;
+            background-color: white;
+            color: black;
+            border: 1px solid #ccc;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .search-results li {
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .search-results li:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .result-container {
+        display: flex; /* Use flexbox to align items in a row */
+        align-items: center; /* Center items vertically */
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block; /* Ensure circles appear on the same line */
+        margin-right: 8px; /* Adjust the margin as needed */
+    }
+
+    .indicator-institutions {
+        background-color: blue; /* Adjust the color for institutions */
+    }
+
+    .indicator-individuals {
+        background-color: orange; /* Adjust the color for individuals */
+    }
+    
+    .indicator-companies {
+        background-color: red; /* Adjust the color for individuals */
+    }
+    
+    .legend {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .legend span {
+        margin-left: 20px; /* Adjust the padding as needed */
+    }
+    
+    /* Add background color to the rendered markdown */
+    .markdown-content {
+        background-color: #f5f5f5;
+        padding: 20px;
+        text-align: left;
+        border-radius: 10px; /* Adjust the radius as needed */
+        color: black; /* Set font color to black */
+    }
+    
+    .markdown-content * {
+        color: black;
+    }
+    
+    /* Set the color for hyperlinks inside markdown content */
+    .markdown-content a {
+        color: blue; /* Adjust the color for hyperlinks */
+    }
+    
+    .markdown-content h2 {
+        background-color: #ddd; /* Gray background color for sections */
+        padding: 10px; /* Adjust padding as needed */
+        margin-top: 20px; /* Add space between sections */
+        border-radius: 5px; /* Rounded corners */
+    }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Can't Hide</title>
+    <link rel="icon" type="image/png" href="images/favicon.png"/>
+  	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/dark.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+</head>
+<body>
+    <div id="app" style="text-align: center; margin-top: 50px;">
+        <h1 style="font-size: 60px;">You Can't Hide</h1>
+        <div>
+            <p style="font-size: 24px;">You can search the database of all institutions, companies, and individuals to see their stance on Palestine, as well as their involvement in the arms trade.</p>
+        </div>
+        <div class="legend">
+        <span class="indicator indicator-institutions"></span> Institutions
+        <span class="indicator indicator-individuals"></span> Individuals
+        <span class="indicator indicator-companies"></span> Companies
+    </div>
+        <div class="search-container" ref="searchContainer" style="margin-top: 20px; text-align: left;">
+            <input v-model="searchTerm" @input="searchDocuments" placeholder="Search for a company, institution, or individual" style="font-size: 16px;">
+<ul v-if="searchResults && searchResults.length > 0" class="search-results" style="left: 0; width: max-content;">
+    <li v-for="(result, index) in searchResults" :key="index"
+        @click="selectDocument(result)"
+        :class="{ 'folder-institutions': isInInstitutionsFolder(result), 'folder-individuals': isInIndividualsFolder(result) }">
+        <div class="result-container">
+            <div class="indicator" :class="{ 'indicator-institutions': isInInstitutionsFolder(result), 'indicator-individuals': isInIndividualsFolder(result) }"></div>
+            {{ result && result.name ? removeExtension(result.name) : 'Unknown' }}
+        </div>
+    </li>
+</ul>
+        </div>
+
+        <div v-if="selectedDocument" style="margin-top: 20px; text-align: left;">
+            <div v-html="renderedDocument" class="markdown-content" ref="markdownContent" style="text-align: left;"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
